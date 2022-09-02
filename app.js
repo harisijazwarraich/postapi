@@ -16,8 +16,8 @@ app.use('/api/v1/posts', posts)
 const start = async () => {
 
     try {
-        await connectDB(process.env.MONGO_URI)
-        app.listen(5000, () => {
+        await connectDB("mongodb+srv://haris:warraich@nodeexpressprojects.cddxmpz.mongodb.net/?retryWrites=true&w=majority")
+        app.listen(process.env.PORT || 5000, () => {
             console.log('listening on port 5000');
         })
     } catch (error) {
