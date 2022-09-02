@@ -9,7 +9,7 @@ app.use(express.json())
 app.use('/', (req, res) => {
     res.send('hi')
 })
-app.use('/api/v1/posts', posts)
+app.use('https://salty-earth-91457.herokuapp.com/api/v1/posts', posts)
 
 
 
