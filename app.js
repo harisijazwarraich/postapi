@@ -6,7 +6,11 @@ require('dotenv').config();
 const app = express()
 
 app.use(express.json())
+app.use('/', (req, res) => {
+    res.send('hi')
+})
 app.use('/api/v1/posts', posts)
+
 
 
 const start = async () => {
