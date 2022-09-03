@@ -6,17 +6,15 @@ require('dotenv').config();
 const app = express()
 
 app.use(express.json())
-app.use('/', (req, res) => {
-    res.send('hi')
-})
-app.use('https://salty-earth-91457.herokuapp.com/api/v1/posts', posts)
+
+app.use('/api/v1/posts', posts)
 
 
 
 const start = async () => {
 
     try {
-        await connectDB("mongodb+srv://haris:warraich@nodeexpressprojects.cddxmpz.mongodb.net/?retryWrites=true&w=majority")
+        await connectDB(process.env.MONGO_URI)
         app.listen(process.env.PORT || 5000, () => {
             console.log('listening on port 5000');
         })
