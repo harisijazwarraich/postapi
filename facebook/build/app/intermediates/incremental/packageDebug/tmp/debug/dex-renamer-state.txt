@@ -1,0 +1,4 @@
+#Sat Sep 03 04:43:52 EDT 2022
+base.0=/home/haris/khurram/frontend/facebook/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
