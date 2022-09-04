@@ -1,8 +1,8 @@
-const Post = require('../models/post');
+import Post from '../models/post';
 
 
 
-const getAllPosts = async (req, res) => {
+export const getAllPosts = async (req, res): Promise<any> => {
     try {
         const posts = await Post.find({});
         return res.status(200).json({ posts })
@@ -11,10 +11,10 @@ const getAllPosts = async (req, res) => {
     }
 
 }
-const getPostDetails = async (req, res) => {
+export const getPostDetails = async (req, res): Promise<any> => {
 
     try {
-        
+
         const post = await Post.findById(req.params.id);
 
         if (!post) {
@@ -31,7 +31,7 @@ const getPostDetails = async (req, res) => {
 
 
 }
-const createPost = async (req, res) => {
+export const createPost = async (req, res): Promise<void> => {
 
     try {
         const post = await Post.create(req.body)
@@ -43,7 +43,7 @@ const createPost = async (req, res) => {
 }
 
 
-const likePost = async (req, res) => {
+export const likePost = async (req, res): Promise<any> => {
     try {
         const post = await Post.findByIdAndUpdate(req.params.id, req.body, { new: true })
 
@@ -62,7 +62,7 @@ const likePost = async (req, res) => {
 
 
 
-const updatePost = async (req, res) => {
+export const updatePost = async (req, res): Promise<any> => {
 
     try {
         const { id: postID } = req.params;
@@ -83,7 +83,7 @@ const updatePost = async (req, res) => {
 
 }
 
-const deletePost = async (req, res) => {
+export const deletePost = async (req, res): Promise<any> => {
     try {
         const { id: postID } = req.params;
         const post = await Post.findOneAndDelete({ _id: postID });
@@ -101,4 +101,3 @@ const deletePost = async (req, res) => {
 }
 
 
-module.exports = { getAllPosts, getPostDetails, updatePost, createPost, deletePost, likePost }
